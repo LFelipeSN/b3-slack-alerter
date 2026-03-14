@@ -1,0 +1,3 @@
+TOKEN=seu_token_aqui
+WEBHOOK_ACOES=sua_url_webhook_acoes_aqui
+WEBHOOK_FIIS=sua_url_webhook_fiis_aqui
