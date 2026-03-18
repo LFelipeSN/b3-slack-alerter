@@ -1,0 +1,29 @@
+name: Script Diário
+
+on:
+  schedule:
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+jobs:
+  rodar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalar dependências
+        run: pip install requests
+
+      - name: Executar script
+        run: python main.py
+        env:
+          TOKEN: ${{secrets.TOKEN}}
+          WEBHOOK_ACOES: ${{secrets.WEBHOOK_ACOES}}
+          WEBHOOK_FIIS: ${{secrets.WEBHOOK_FIIS}}
